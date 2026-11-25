@@ -1,0 +1,7 @@
+{
+  "name": "EduNotas",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
