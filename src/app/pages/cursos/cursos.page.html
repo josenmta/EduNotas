@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start"><ion-menu-button></ion-menu-button></ion-buttons>
+    <ion-title>Bienvenido/a, José</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-refresher slot="fixed" (ionRefresh)="recargar($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <div class="resumen">
+    <ion-card>
+      <ion-card-header><ion-card-title>{{ cursos.length }}</ion-card-title></ion-card-header>
+      <ion-card-content>Cursos</ion-card-content>
+    </ion-card>
+    <ion-card>
+      <ion-card-header><ion-card-title>{{ totalEstudiantes }}</ion-card-title></ion-card-header>
+      <ion-card-content>Estudiantes</ion-card-content>
+    </ion-card>
+    <ion-card>
+      <ion-card-header><ion-card-title>{{ porCalificar }}</ion-card-title></ion-card-header>
+      <ion-card-content>Por calificar</ion-card-content>
+    </ion-card>
+  </div>
+
+  <h3>Mis cursos</h3>
+  <p class="hint">Actualizado: {{ ultima.toLocaleTimeString() }} · Desliza un curso a la izquierda para eliminarlo</p>
+
+  <ion-list>
+    @for (curso of cursos; track curso.id) {
+    <ion-item-sliding #sliding>
+      <ion-item button detail="true" (click)="abrirCurso()">
+        <div class="sigla" slot="start">{{ curso.sigla }}</div>
+        <ion-label>
+          <h2>{{ curso.nombre }}</h2>
+          <p>{{ curso.estudiantes }} estudiantes</p>
+        </ion-label>
+      </ion-item>
+      <ion-item-options side="end">
+        <ion-item-option color="danger" (click)="confirmarEliminar(curso, sliding)">
+          <ion-icon slot="icon-only" name="trash"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+    }
+  </ion-list>
+
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+    <ion-fab-button (click)="agregarCurso()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

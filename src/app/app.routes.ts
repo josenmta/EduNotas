@@ -1,13 +1,17 @@
-import type { Routes } from '@angular/router';
+import { Routes } from '@angular/router';
 
 export const routes: Routes = [
+  { path: '', redirectTo: 'cursos', pathMatch: 'full' },
   {
-    path: 'home',
-    loadComponent: () => import('./home/home.page').then((m) => m.HomePage),
+    path: 'cursos',
+    loadComponent: () => import('./pages/cursos/cursos.page').then((m) => m.CursosPage),
   },
   {
-    path: '',
-    redirectTo: 'home',
-    pathMatch: 'full',
+    path: 'registro',
+    loadComponent: () => import('./pages/registro/registro.page').then((m) => m.RegistroPage),
+  },
+  {
+    path: 'boletin/:id',
+    loadComponent: () => import('./pages/boletin/boletin.page').then((m) => m.BoletinPage),
   },
 ];

@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+      <ion-back-button defaultHref="/registro"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Boletín del estudiante</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  @if (est) {
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>{{ est.nombre }}</ion-card-title>
+      <ion-card-subtitle>Matrícula: {{ est.matricula }}</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>Promedio ponderado: <strong>{{ final }}</strong></ion-card-content>
+  </ion-card>
+
+  <h3>Calificaciones por evaluación</h3>
+  <div class="grafica-wrap">
+    <img src="assets/grafica.svg" alt="Gráfica de calificaciones" appPinchZoom />
+  </div>
+  <p class="hint">Pellizca con dos dedos para hacer zoom · doble clic para restablecer</p>
+
+  <ion-list>
+    @for (ev of edu.evaluaciones; track ev.nombre; let i = $index) {
+    <ion-item>
+      <ion-label>{{ ev.nombre }}</ion-label>
+      <ion-note slot="end">{{ ev.peso }}% · {{ est.evals[i] }}</ion-note>
+    </ion-item>
+    }
+  </ion-list>
+
+  <ion-button expand="block">Exportar PDF</ion-button>
+  <ion-button expand="block" fill="outline">Compartir</ion-button>
+  } @else {
+  <p>Estudiante no encontrado.</p>
+  }
+</ion-content>

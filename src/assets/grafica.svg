@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 180">
+  <rect width="320" height="180" rx="12" fill="#e5e5ea"/>
+  <line x1="20" y1="140" x2="300" y2="140" stroke="#0a84ff" stroke-width="2"/>
+  <g fill="#f8f8f8">
+    <rect x="30" y="60" width="50" height="80" rx="8"/>
+    <rect x="95" y="52" width="50" height="88" rx="8"/>
+    <rect x="160" y="58" width="50" height="82" rx="8"/>
+    <rect x="225" y="48" width="50" height="92" rx="8"/>
+  </g>
+  <g font-family="Arial" font-size="12" text-anchor="middle" fill="#222">
+    <text x="55" y="52">80</text><text x="120" y="44">88</text>
+    <text x="185" y="50">82</text><text x="250" y="40">92</text>
+    <text x="55" y="158">Tareas</text><text x="120" y="158">Quiz</text>
+    <text x="185" y="158">Examen</text><text x="250" y="158">Proyecto</text>
+  </g>
+</svg>

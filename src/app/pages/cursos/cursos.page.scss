@@ -1,0 +1,9 @@
+.resumen { display: flex; gap: 8px; }
+.resumen ion-card { flex: 1; margin: 0; text-align: center; }
+.resumen ion-card-title { font-size: 1.6rem; }
+.sigla {
+  width: 44px; height: 44px; border-radius: 10px; margin-right: 12px; font-weight: 700;
+  background: var(--ion-color-light-shade);
+  display: flex; align-items: center; justify-content: center;
+}
+.hint { font-size: 0.8rem; color: var(--ion-color-medium); }
